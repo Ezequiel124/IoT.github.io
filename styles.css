@@ -26,15 +26,6 @@ html {
 .textOff {
     color: red;
 }
-/*Scroll Snap*/
-.servicios, .nav-barra{
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-}
-.formulario{
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-}
 *,*::before, *::after{
     box-sizing: inherit;
 }
