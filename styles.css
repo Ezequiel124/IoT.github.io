@@ -197,14 +197,14 @@ h1.titulo {
         text-align: justify;
     }    
     .contenedor{         
-        width: 120rem;    
-        margin: 5rem auto;  /* <- Esto es igual a margin: 50px auto 50px auto; y a su vez a 
+        width: 1120px;    
+        margin: 50px auto;  /* <- Esto es igual a margin: 50px auto 50px auto; y a su vez a 
             margin-top: 50px;    
             margin-right: auto;
             margin-bottom: 50px;
             margin-left: auto;
         */
-        padding: 1rem 3rem;
+        padding: 10px 30px;
         
     }
     .servicios{
