@@ -84,19 +84,6 @@ h1,h2,h3{
 .flex .boton{
     width: 100%;
 }
-/*Usando un media querie, cuando el dispositivo sea un pc en adelante*/
-@media (min-width: 768px){
-    .boton, .boton-enviar .boton{
-        /*El largo del boton se va a resetear*/
-        width: auto;
-    }
-    .contenedor-campo{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto auto 20rem;
-        column-gap: 1rem;        
-    }
-}
 h1.titulo {        
     color: rgb(2, 8, 8);
 }
@@ -117,18 +104,6 @@ h1.titulo {
     flex-direction: column;
     align-content: center;
     
-}
-@media (min-width: 768px){
-    .nav-barra{
-        flex-direction: row;
-        align-content: space-around;
-        justify-content: space-around;
-    }
-}
-@media (min-width: 1440px){
-    .nav-barra{
-        align-content: space-between;
-    }
 }
 .nav-barra a{
     text-decoration: none;
@@ -184,8 +159,8 @@ h1.titulo {
 .gridbox{
     text-align: center;    
 }
-@media (min-width: 760px){    
-    .gridbox{
+
+.gridbox{
         display: grid;
         grid-template-columns: repeat(3, 1fr); /*<--- esto es igual que poner: 
             grid-template-columns: 1fr 1fr 1fr; ó grid-template-columns: 33.3 33.3 33.3;
@@ -205,7 +180,6 @@ h1.titulo {
             margin-left: auto;
         */
         padding: 10px 30px;
-        
     }
     .servicios{
         display: flex;
@@ -238,7 +212,7 @@ h1.titulo {
     .campo textarea{
         height: 17rem;
     }
-}
+
 .formulario{
     background-color: var(--gris-claro);
     width: min(50rem, 100%);/*Elige de ancho el tamaño mas pequeño ya sea 500px o el 100% disponible*/
