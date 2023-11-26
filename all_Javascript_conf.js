@@ -1,6 +1,6 @@
 var accessToken = "0b108a382c4de6ed9cc41e240df301736c4f27e6";
 var deviceID = "e00fce680fc0e5b73b2899b8";
-var url = "https://api.particle.io/v1/devices/" + deviceID + "/alimentar";
+var url = "https://api.particle.io/v1/devices/" + deviceID;
 
 function switchOn() {
     var heading = document.getElementById('label');
@@ -9,10 +9,10 @@ function switchOn() {
     heading.classList.remove('textError');
     heading.innerHTML = 'Alimentando...';
     heading.classList.add('textOn');
-    $.post(url, { params: "on", access_token: accessToken }, function (data) {
+    $.post(url + "/alimentar", { params: "on", access_token: accessToken }, function (data) {
         if (data.return_value == 1) {
             heading.innerHTML = 'Alimentando...';
-            $.post(url, { params: "off", access_token: accessToken }, function (data) {
+            $.post(url + "/alimentar", { params: "off", access_token: accessToken }, function (data) {
                 if (data.return_value == 0) {
                     heading.classList.remove('textOn');
                     heading.innerHTML = 'En espera';
@@ -31,4 +31,10 @@ function switchOn() {
             heading.classList.add('textError');
         }
     }, "json");
+}
+
+function setFecha(){
+    var año = document.getElementById('formulario');
+    año = año.get('year');
+    console.log(año)
 }
