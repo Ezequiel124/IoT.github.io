@@ -15,49 +15,51 @@
  <header>
         <h1 class="titulo">PAGINA WEB <span>IoT</span></h1>
 </header>
-<section class="servicios">
-	<div class="servicio">                        
-            <div class="direccion">
-                <form class="formulario">
-            <fieldset>                        
-                    <legend>Tus Datos Aqui</legend>                                        
-                    <div class="contenedor-campo">
-                        <div class="campo">
-                            <label>Nombre</label>
-                            <input class="input-text" type="text" placeholder="Tu Nombre">
-                        </div>
-                        
-                        <div class="campo">
-                            <label>Telefono</label>
-                            <input class="input-text" type="tel" placeholder="Tu Telefono">
-                        </div>
-
-                        <div class="campo">
-                            <label>Email</label>
-                            <input class="input-text" type="email" placeholder="Tu Email">
-                        </div>
-
-                        <div class="campo">
-                            <label>Mensaje (Opcional)</label>
-                            <textarea class="input-text" name="msg" id="msgForm_Index" cols="20" rows="3"></textarea>
-                        </div>                                                                           
-                    </div>  
-                    <section class="boton-enviar">
-                        <div class="flex">                    
-                            <input class="boton width-sm-100percent" type="submit" value="Enviar">
-                        </div>   
-                    </section>                 
-            </fieldset>
-            </div>                    
-        </div> 
-        <div class="servicio">                                       
+<main class="contenedor sombra ">
+   <section class="servicios">
+       <div class="servicio">                        
+               <div class="direccion">
+                   <form class="formulario">
+               <fieldset>                        
+                       <legend>Tus Datos Aqui</legend>                                        
+                       <div class="contenedor-campo">
+                           <div class="campo">
+                               <label>Nombre</label>
+                               <input class="input-text" type="text" placeholder="Tu Nombre">
+                           </div>
+                           
+                           <div class="campo">
+                               <label>Telefono</label>
+                               <input class="input-text" type="tel" placeholder="Tu Telefono">
+                           </div>
+   
+                           <div class="campo">
+                               <label>Email</label>
+                               <input class="input-text" type="email" placeholder="Tu Email">
+                           </div>
+   
+                           <div class="campo">
+                               <label>Mensaje (Opcional)</label>
+                               <textarea class="input-text" name="msg" id="msgForm_Index" cols="20" rows="3"></textarea>
+                           </div>                                                                           
+                       </div>  
+                       <section class="boton-enviar">
+                           <div class="flex">                    
+                               <input class="boton width-sm-100percent" type="submit" value="Enviar">
+                           </div>   
+                       </section>                 
+               </fieldset>
+            </form>
+               </div>                    
+           </div> 
+           <div class="servicio">                                       
                 <h1>Alimentador de mascotas</h1>	                                   
                <div>
                 <h1 id="label" class= "textOn textOff textError">En espera</h1>
                <input type="button" onClick="switchOn()" value="Alimentar"/>
                </div>            
-        </div>       
-</section>
-</form>
+           </div>        
+   </section>
+</main>
 </body>
 </html>
