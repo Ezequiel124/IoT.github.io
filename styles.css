@@ -33,7 +33,7 @@ html {
     background-image: url("Nemo.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 18rem;  
+    height: 18px;  
 }
 body{
     font-size: 16px; /* 1rem = */
