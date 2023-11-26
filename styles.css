@@ -30,10 +30,9 @@ html {
     box-sizing: inherit;
 }
 .nemo{    
-    background-image: url("Nemo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 18px;  
+    border-radius: 1rem;
+    width:30rem;
+    height:23rem;
 }
 body{
     font-size: 16px; /* 1rem = */
