@@ -24,23 +24,41 @@
                   <form class="formulario" action="/action_page.php">
                <fieldset>                        
                        <legend>Tus Datos Aqui</legend>                                        
-                       <div >
-                           <div class="campo">
-                            <label for="birthday">Día, Mes y Año</label>
-                            <input type="date" id="birthday" name="birthday">                                                        
-                           </div>                           
-   
-                           <div class="campo">
-                            <label for="appt">Hora y Minuto</label>
-                            <input type="time" id="appt" name="appt">                                                                     
-                       </div>  
+                       <!--<div >-->                        
+                        <div class="fallbackDatePicker">
+                            <span>
+                                <label for="year">Year:</label>
+                                <select id="year" name="year"></select>
+                              </span>                            
+                            <span>
+                              <label for="month">Month:</label>
+                              <select id="month" name="month">
+                                <option selected>Enero</option>
+                                <option>Febrero</option>
+                                <option>Marzo</option>
+                                <option>Abril</option>
+                                <option>Mayo</option>
+                                <option>Junio</option>
+                                <option>Julio</option>
+                                <option>Agosto</option>
+                                <option>Septiembre</option>
+                                <option>Octubre</option>
+                                <option>Noviembre</option>
+                                <option>Diciembre</option>
+                              </select>
+                            </span> 
+                            <span>
+                                <label for="day">Day:</label>
+                                <select id="day" name="day"></select>
+                              </span>                           
+                          </div>   
                        <section class="boton-enviar">
                            <div class="flex">                    
                                <input class="boton width-sm-100percent" type="submit" value="Enviar">
                            </div>   
                        </section>                 
                </fieldset>
-            </form>            
+            </form>       
                </div>                    
            </div> 
            <div class="servicio">                                       
