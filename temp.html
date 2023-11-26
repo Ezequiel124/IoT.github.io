@@ -1,0 +1,121 @@
+<html>
+<head>
+<!-- Se importa la libreria jsquery.min.js-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Se importa la libreria raphael-->
+<script src="raphael-2.1.4.min.js"></script>
+<!-- Se importa la libreria justgage-->
+<script src="justgage.js"></script>
+
+<script>
+//Se declara la variable con el valor del Token de acceso
+var accessToken = "2e438bf4d6094f0f6714527347b011b1c09ddbe7";
+//Se declara una variable donde se guarda el id del dispositivo particle
+var deviceID = "e00fce680fc0e5b73b2899b8"
+//Se declara una variable con la direccion del io de particle, el id de dispositivo y los grados °C
+var gradosC = "https://api.particle.io/v1/devices/" + deviceID + "/gradosC";
+var gradosF = "https://api.particle.io/v1/devices/" + deviceID + "/gradosF";
+var humedad = "https://api.particle.io/v1/devices/" + deviceID + "/humedad";
+// Funcion que recibe dos parametros
+function callbackC(data, status){
+    //Verifica que estatus sea igual a "success"
+	if (status == "success") {
+        //guarda en una variable el casting del resultado del parametro data
+		index = parseFloat(data.result);
+        //guarda el 
+		index = index.toFixed(2);
+		g.refresh(index);
+		setTimeout(getReadingC, 1000);
+	}
+	else {
+		alert("There was a problem");
+	}
+}
+
+function callbackF(data, status){
+    //Verifica que estatus sea igual a "success"
+	if (status == "success") {
+        //guarda en una variable el casting del resultado del parametro data
+		index = parseFloat(data.result);
+        //guarda el 
+		index = index.toFixed(2);
+		f.refresh(index);
+		setTimeout(getReadingF, 1000);
+	}
+	else {
+		alert("There was a problem");
+	}
+}
+
+function callbackH(data, status){
+    //Verifica que estatus sea igual a "success"
+	if (status == "success") {
+        //guarda en una variable el casting del resultado del parametro data
+		index = parseFloat(data.result);
+        //guarda el 
+		index = index.toFixed(2);
+		h.refresh(index);
+		setTimeout(getReadingH, 1000);
+	}
+	else {
+		alert("There was a problem");
+	}
+}
+//Es una funcion sin argumento 
+function getReadingC(){
+    //Se construye el url y se le pasa el access token 
+    //Seria como poner un enter a la interface de obtener la temperatura
+    //y con ello se manda llamar la funcion callback
+   	$.get(gradosC, {access_token: accessToken}, callbackC);
+}
+
+function getReadingF(){
+    //Se construye el url y se le pasa el access token 
+    //Seria como poner un enter a la interface de obtener la temperatura
+    //y con ello se manda llamar la funcion callback
+   	$.get(gradosF, {access_token: accessToken}, callbackF);
+}
+
+function getReadingH(){
+    //Se construye el url y se le pasa el access token 
+    //Seria como poner un enter a la interface de obtener la temperatura
+    //y con ello se manda llamar la funcion callback
+   	$.get(humedad, {access_token: accessToken}, callbackH);
+}
+</script>
+</head>	
+
+<body>
+<div id="gauge1" class="200x160px"></div>
+<div id="gauge2" class="200x160px"></div>
+<div id="gauge3" class="200x160px"></div>
+
+<script>
+var g = new JustGage({
+    id: "gauge1",
+    value: 0,//Valor
+    min: 0,//Valor minimo
+    max: 400,//Valor maximo
+    title: "Temperatura (C)"//Titulo
+});
+var f = new JustGage({
+    id: "gauge2",
+    value: 0,//Valor
+    min: 0,//Valor minimo
+    max: 400,//Valor maximo
+    title: "Temperatura (F)"//Titulo
+});
+var h = new JustGage({
+    id: "gauge3",
+    value: 0,//Valor
+    min: 0,//Valor minimo
+    max: 400,//Valor maximo
+    title: "Humedad (%)"//Titulo
+});
+getReadingC();
+getReadingF();
+getReadingH();
+</script>
+
+</body>
+</html>

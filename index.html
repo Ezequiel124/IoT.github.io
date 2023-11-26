@@ -1,0 +1,104 @@
+<html>
+<head>
+<!-- Se importa la libreria jsquery.min.js-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Se importa la libreria raphael-->
+<script src="raphael-2.1.4.min.js"></script>
+<!-- Se importa la libreria justgage-->
+<script src="justgage.js"></script>
+
+<script>
+var accessToken = "0b108a382c4de6ed9cc41e240df301736c4f27e6";
+var deviceID = "e00fce680fc0e5b73b2899b8";
+var url = "https://api.particle.io/v1/devices/" + deviceID + "/alimentar";
+
+function switchOn() {
+    var heading = document.getElementById('label');
+    heading.classList.remove('textOff');
+    heading.classList.remove('textOn');
+    heading.classList.remove('textError');
+    heading.innerHTML = 'Alimentando...';
+    heading.classList.add('textOn');
+    $.post(url, { params: "on", access_token: accessToken }, function (data) {
+        if (data.return_value == 1) {
+            heading.innerHTML = 'Alimentando...';
+            $.post(url, { params: "off", access_token: accessToken }, function (data) {
+                if (data.return_value == 0) {
+                    heading.classList.remove('textOn');
+                    heading.innerHTML = 'En espera';
+                    heading.classList.add('textOff');
+                }
+                else{
+                    heading.classList.remove('textOn');
+                    heading.innerHTML = 'Error!';
+                    heading.classList.add('textError');
+                }
+            }, "json");
+        }
+        else{
+            heading.classList.remove('textOn');
+            heading.innerHTML = 'Error!';
+            heading.classList.add('textError');
+        }
+    }, "json");
+}
+</script>
+
+<style>
+.textOn {
+    color: green;
+}
+
+.textError{
+    color: orange;
+}
+
+.textOff {
+    color: red;
+}
+</style>
+<body align="center">
+<h1>Alimentador de mascotas</h1>	
+<h1 id="label" class= "textOn textOff textError">En espera</h1>
+<input type="button" onClick="switchOn()" value="Alimentar"/>
+
+<form class="formulario">
+            <fieldset>                        
+                    <legend>Tus Datos Aqui</legend>                                        
+                    <div class="contenedor-campo">
+                        <div class="campo">
+                            <label>Nombre</label>
+                            <input class="input-text" type="text" placeholder="Tu Nombre">
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Telefono</label>
+                            <input class="input-text" type="tel" placeholder="Tu Telefono">
+                        </div>
+
+                        <div class="campo">
+                            <label>Email</label>
+                            <input class="input-text" type="email" placeholder="Tu Email">
+                        </div>
+
+                        <div class="campo">
+                            <label>Mensaje (Opcional)</label>
+                            <textarea class="input-text" name="msg" id="msgForm_Index" cols="20" rows="3"></textarea>
+                        </div>                                                                           
+                    </div>  
+                    <section class="boton-enviar">
+                        <div class="flex">                    
+                            <input class="boton width-sm-100percent" type="submit" value="Enviar">
+                        </div>   
+                    </section>                 
+            </fieldset>
+</form>
+
+<style>
+.textcolor{
+ color:green;
+}
+</style>
+	
+</body>
+</html>
