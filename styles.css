@@ -25,7 +25,7 @@ html {
 }
 .textOff {
     color: red;
-}/*
+}
 input:invalid {
     border: 2px dashed red;
   }
@@ -36,7 +36,7 @@ input:invalid {
   
   input:valid {
     border: 2px solid black;
-  }*/
+  }
 *,*::before, *::after{
     box-sizing: inherit;
 }
