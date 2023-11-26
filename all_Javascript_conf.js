@@ -2,8 +2,8 @@ var accessToken = "0b108a382c4de6ed9cc41e240df301736c4f27e6";
 var deviceID = "e00fce680fc0e5b73b2899b8";
 var url = "https://api.particle.io/v1/devices/" + deviceID + "/alimentar";
 
-const year = document.getElementById("year");
-const yearError = document.querySelector("#year + span.error");
+var year = document.getElementById("year");
+var yearError = document.querySelector("#year + span.error");
 
 year.addEventListener("input", function (event) {
   // Cada vez que el usuario escribe algo, verificamos si
