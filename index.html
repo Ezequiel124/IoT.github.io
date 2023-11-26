@@ -21,23 +21,18 @@
    <section class="servicios">
        <div class="servicio">                        
                <div class="direccion">
-                   <form class="formulario" action="/action_page.php">
+                  <form class="formulario" action="/action_page.php">
                <fieldset>                        
                        <legend>Tus Datos Aqui</legend>                                        
-                       <div class="contenedor-campo">
+                       <div >
                            <div class="campo">
-                               <label>Día</label>
-                               <input type="number" id="quantity" name="quantity" min="1" max="31" step="1" value="31">                               
-                           </div>
-                           
-                           <div class="campo">
-                            <label for="bdaymonth">Birthday (month and year):</label>
-                            <input type="month" id="bdaymonth" name="bdaymonth">                            
+                            <label for="birthday">Día, Mes y Año</label>
+                            <input type="date" id="birthday" name="birthday">                                                        
                            </div>                           
    
                            <div class="campo">
-                            <label for="appt">Select a time:</label>
-                            <input type="hour" id="appt" name="appt">                                                                     
+                            <label for="appt">Hora y Minuto</label>
+                            <input type="time" id="appt" name="appt">                                                                     
                        </div>  
                        <section class="boton-enviar">
                            <div class="flex">                    
@@ -45,7 +40,7 @@
                            </div>   
                        </section>                 
                </fieldset>
-            </form>  
+            </form>            
                </div>                    
            </div> 
            <div class="servicio">                                       
