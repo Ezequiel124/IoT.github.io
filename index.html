@@ -21,29 +21,23 @@
    <section class="servicios">
        <div class="servicio">                        
                <div class="direccion">
-                   <form class="formulario">
+                   <form class="formulario" action="/action_page.php">
                <fieldset>                        
                        <legend>Tus Datos Aqui</legend>                                        
                        <div class="contenedor-campo">
                            <div class="campo">
-                               <label>Nombre</label>
+                               <label>Año</label>
                                <input class="input-text" type="text" placeholder="Tu Nombre">
                            </div>
                            
                            <div class="campo">
-                               <label>Telefono</label>
-                               <input class="input-text" type="tel" placeholder="Tu Telefono">
-                           </div>
+                            <label for="bdaymonth">Birthday (month and year):</label>
+                            <input type="month" id="bdaymonth" name="bdaymonth">                            
+                           </div>                           
    
                            <div class="campo">
-                               <label>Email</label>
-                               <input class="input-text" type="email" placeholder="Tu Email">
-                           </div>
-   
-                           <div class="campo">
-                               <label>Mensaje (Opcional)</label>
-                               <textarea class="input-text" name="msg" id="msgForm_Index" cols="20" rows="3"></textarea>
-                           </div>                                                                           
+                            <label for="appt">Select a time:</label>
+                            <input type="hour" id="appt" name="appt">                                                                     
                        </div>  
                        <section class="boton-enviar">
                            <div class="flex">                    
@@ -51,7 +45,7 @@
                            </div>   
                        </section>                 
                </fieldset>
-            </form>
+            </form>  
                </div>                    
            </div> 
            <div class="servicio">                                       
