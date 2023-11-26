@@ -29,6 +29,12 @@ html {
 *,*::before, *::after{
     box-sizing: inherit;
 }
+.nemo{    
+    background-image: url("Nemo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 18rem;  
+}
 body{
     font-size: 16px; /* 1rem = */
     font-family: 'Krub', Arial; /* Se carga la fuente de google forms*/
