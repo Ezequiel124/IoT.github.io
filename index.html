@@ -8,30 +8,30 @@
 <!-- Se importa la libreria justgage-->
 <script src="justgage.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap" rel="stylesheet">  
-<link rel="preload" href="../CSS/normalize.css" as="style"> 
-<link href="../CSS/normalize.css" rel="stylesheet">
+<link rel="preload" href="normalize.css" as="style"> 
+<link href="normalize.css" rel="stylesheet">
 <link rel="preload" href="styles.css" as="style"> 
 <link href="styles.css" rel="stylesheet">
-	
+
 <body align="center">
- <header>
+<header>
         <h1 class="titulo">PAGINA WEB <span>IoT</span></h1>
 </header>
 <main class="contenedor sombra ">
    <section class="servicios">
        <div class="servicio">                        
-               <div class="direccion">
-                  <form class="formulario" action="/action_page.php">
-               <fieldset>                        
-                       <legend>Tus Datos Aqui</legend>                                        
+            <div class="direccion">
+                <form id="formulario" class="formulario" action="">
+                    <fieldset>                        
+                       <legend>Ingresa los datos para<br>programar el dispensador</legend>                                        
                        <!--<div >-->                        
                         <div>
                             <span>
-                                <label for="year">Year:</label>
-                                <input type="number" id="year" min="2000" max="3000" name="year" value="2000" minlength="4" maxlength="4" required>                                
+                                <label for="year">Año:</label>
+                                <input type="number" id="year" min="2023" max="3000" value="2023" name="year" minlength="4" maxlength="4" required>                                
                               </span>                            
                               <br><br><span>
-                              <label for="month">Month:</label>
+                              <label for="month">Mes:</label>
                               <select id="month" name="month" required>
                                 <option selected>Enero</option>
                                 <option>Febrero</option>
@@ -48,7 +48,7 @@
                               </select>
                             </span> 
                             <span>
-                                <br><br><label for="day">Day:</label>
+                                <br><br><label for="day">Día:</label>
                                 <select id="day" name="day" required>
                                     <option selected>1</option>
                                     <option>2</option><option>3</option><option>4</option><option>5</option>
@@ -63,7 +63,7 @@
                               </span> 
                             </span> 
                             <span>
-                                <br><br><label for="day">Hora:</label>
+                                <br><br><label for="hour">Hora:</label>
                                 <select id="hour" name="hour" required>
                                     <option selected>01</option>
                                     <option>02</option><option>03</option><option>04</option><option>05</option>
@@ -76,7 +76,7 @@
                               </span>
                             </span> 
                             <span>
-                                <br><br><label for="day">Minuto:</label>
+                                <br><br><label for="minute">Minuto:</label>
                                 <select id="minute" name="minute" required>
                                     <option selected>00</option><option>01</option>
                                     <option>02</option><option>03</option><option>04</option><option>05</option>
@@ -95,21 +95,21 @@
                                     <option>54</option><option>55</option><option>56</option><option>57</option>
                                     <option>58</option><option>59</option>
                                 </select>
-                              </span>                          
-                          </div>   
-                       <section class="boton-enviar">
+                            </span>                          
+                        </div>   
+                        <section class="boton-enviar">
                            <div class="flex">                    
-                               <input class="boton width-sm-100percent" type="button" onClick="setFecha()" value="Enviar">
+                               <input class="boton width-sm-100percent" type="submit" value="Programar">
                            </div>   
-                       </section>                 
-               </fieldset>
-            </form>                                          
-               </div>                    
+                        </section>                 
+                    </fieldset>
+                </form>                                          
+            </div>                    
            </div> 
            <div class="servicio">                                       
             <h1>Alimentador de Peces</h1>	                                                                
                 <h1 id="label" class= "textOn textOff textError">En espera</h1>
-                <input type="button" onClick="switchOn()" value="Alimentar"/ class="button">                                                                      
+                <input type="button" onclick="switchOn()" value="Alimentar" class="button">                                                                      
 	        <img src="Nemo.png" class = "nemo"> 
            </div> 	   
    </section>
