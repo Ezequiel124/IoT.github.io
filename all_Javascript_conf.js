@@ -98,7 +98,7 @@ function getEstadoServo(){
 }
 
 function callbackServo(data){
-    if (data.result == true){
+    if (data.result == "true"){
         heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
         heading.classList.add('textOn');
