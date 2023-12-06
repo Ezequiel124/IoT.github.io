@@ -102,14 +102,14 @@ function callbackServo(data){
         heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
         heading.classList.add('textOn');
-        setInterval(getEstadoServo, 1000);
+        setTimeout(getEstadoServo, 1000);
     }
     else{
         heading.classList.remove('textOn');
         heading.innerHTML = 'En espera';
         heading.classList.add('textOff');
-        setInterval(getEstadoServo, 1000);
+        setTimeout(getEstadoServo, 1000);
     }
 }
 
-setInterval(getEstadoServo, 1000);
+getEstadoServo();
