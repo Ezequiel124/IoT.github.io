@@ -1,7 +1,7 @@
 const accessToken = "0b108a382c4de6ed9cc41e240df301736c4f27e6";
 const deviceID = "e00fce680fc0e5b73b2899b8";
 const url = "https://api.particle.io/v1/devices/" + deviceID;
-var form, year, month, day, hour, minute;
+var form, year, month, day, hour, minute, heading;
 
 window.addEventListener("load", (event) => {
     form = document.getElementById("formulario");
@@ -10,6 +10,7 @@ window.addEventListener("load", (event) => {
     day = document.getElementById("day");
     hour = document.getElementById("hour");
     minute = document.getElementById("minute");
+    heading = document.getElementById('label');
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -18,7 +19,6 @@ window.addEventListener("load", (event) => {
 });
 
 function switchOn() {
-    const heading = document.getElementById('label');
     heading.classList.remove('textOff');
     heading.classList.remove('textOn');
     heading.classList.remove('textError');
@@ -98,7 +98,6 @@ function getEstadoServo(){
 }
 
 function callbackServo(data){
-    const heading = document.getElementById('label');
     if (data.result == true){
         heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
