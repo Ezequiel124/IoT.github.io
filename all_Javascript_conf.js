@@ -11,6 +11,7 @@ window.addEventListener("load", (event) => {
     hour = document.getElementById("hour");
     minute = document.getElementById("minute");
     heading = document.getElementById('label');
+    getEstadoServo();
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -94,11 +95,8 @@ function programar(){
 }
 
 function getEstadoServo(){
-    $.get(url + "/flagServo", {access_token: accessToken}, callbackServo);
-}
-
-function callbackServo(data){
-    if (data.result == "true"){
+    $.get(url + "/flagServo", {access_token: accessToken}, callbackServo).then(function(data){
+        if (data.result == 1){
         heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
         heading.classList.add('textOn');
@@ -109,7 +107,5 @@ function callbackServo(data){
         heading.innerHTML = 'En espera';
         heading.classList.add('textOff');
         setTimeout(getEstadoServo, 1000);
-    }
+    };
 }
-
-getEstadoServo();
