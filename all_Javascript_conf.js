@@ -11,7 +11,7 @@ window.addEventListener("load", (event) => {
     hour = document.getElementById("hour");
     minute = document.getElementById("minute");
     heading = document.getElementById('label');
-    const update = setInterval(getEstadoServo, 1000);
+    const update = setInterval(() => getEstadoServo, 1000);
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
