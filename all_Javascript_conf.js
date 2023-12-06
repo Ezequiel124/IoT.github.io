@@ -92,3 +92,21 @@ function programar(){
         }
     });
 }
+
+function getEstadoServo(){
+    $.get(flagServo, {access_token: accessToken}, callbackServo);
+}
+
+function callbackServo(data){
+    const heading = document.getElementById('label');
+    if (data.result == true){
+        heading.innerHTML = 'Alimentando...';
+        heading.classList.add('textOn');
+    }
+    else{
+        heading.innerHTML = 'En espera';
+        heading.classList.add('textOff');
+    }
+}
+
+getEstadoServo();
