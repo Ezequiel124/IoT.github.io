@@ -109,4 +109,4 @@ function callbackServo(data){
     }
 }
 
-getEstadoServo();
+setInterval(getEstadoServo, 1000);
