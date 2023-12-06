@@ -100,10 +100,12 @@ function getEstadoServo(){
 function callbackServo(data){
     const heading = document.getElementById('label');
     if (data.result == true){
+        heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
         heading.classList.add('textOn');
     }
     else{
+        heading.classList.remove('textOn');
         heading.innerHTML = 'En espera';
         heading.classList.add('textOff');
     }
