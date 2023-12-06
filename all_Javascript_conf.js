@@ -95,7 +95,7 @@ function programar(){
 }
 
 function getEstadoServo(){
-    $.get(flagServo, {access_token: accessToken}, callbackServo);
+    $.get(url + "/flagServo", {access_token: accessToken}, callbackServo);
 }
 
 function callbackServo(data){
