@@ -13,9 +13,10 @@
 <link rel="preload" href="styles.css" as="style"> 
 <link href="styles.css" rel="stylesheet">
 
-<body align="center">
-<header>
-        <h1 class="titulo">PAGINA WEB <span>IoT</span></h1>
+
+<body align="center">      
+<header class="header">
+        <h1 class="titulo">Dispensador de <span>Croquetas</span></h1>
 </header>
 <main class="contenedor sombra ">
    <section class="servicios">
@@ -23,45 +24,16 @@
             <div class="direccion">
                 <form id="formulario" class="formulario" action="">
                     <fieldset>                        
-                       <legend>Ingresa los datos para<br>programar el dispensador</legend>                                        
+                       <legend class="title_form">Ingresa los datos para<br>programar el dispensador</legend>                                        
                        <!--<div >-->                        
-                        <div>
+                        <div>    
                             <span>
-                                <label for="year">Año:</label>
-                                <input type="number" id="year" min="2023" max="3000" value="2023" name="year" minlength="4" maxlength="4" required>                                
-                              </span>                            
-                              <br><br><span>
-                              <label for="month">Mes:</label>
-                              <select id="month" name="month" required>
-                                <option selected>Enero</option>
-                                <option>Febrero</option>
-                                <option>Marzo</option>
-                                <option>Abril</option>
-                                <option>Mayo</option>
-                                <option>Junio</option>
-                                <option>Julio</option>
-                                <option>Agosto</option>
-                                <option>Septiembre</option>
-                                <option>Octubre</option>
-                                <option>Noviembre</option>
-                                <option>Diciembre</option>
-                              </select>
-                            </span> 
-                            <span>
-                                <br><br><label for="day">Día:</label>
-                                <select id="day" name="day" required>
-                                    <option selected>1</option>
-                                    <option>2</option><option>3</option><option>4</option><option>5</option>
-                                    <option>6</option><option>7</option><option>8</option><option>9</option>
-                                    <option>10</option><option>11</option><option>12</option><option>13</option>
-                                    <option>14</option><option>15</option><option>16</option><option>17</option>
-                                    <option>18</option><option>19</option><option>20</option><option>21</option>
-                                    <option>22</option><option>23</option><option>24</option><option>25</option>
-                                    <option>26</option><option>27</option><option>28</option><option>29</option>
-                                    <option>30</option><option>31</option>                                    
-                                </select>
-                              </span> 
-                            </span> 
+                                <label for="raza_perro">Raza:</label>
+                                <select id="razas" name="raza" required>
+                                    <option selected>Pequeña</option>
+                                    <option>Mediana</option><option>Grande</option>    
+                                </select>                                     
+                            </span>                               
                             <span>
                                 <br><br><label for="hour">Hora:</label>
                                 <select id="hour" name="hour" required>
@@ -104,15 +76,53 @@
                         </section>                 
                     </fieldset>
                 </form>                                          
-            </div>                    
+            </div>  
+            <div>
+                <h2>Programado a las: </h2>
+                <label class="lab_hour">No programada aún</label>
+            </div>
            </div> 
-           <div class="servicio">                                       
-            <h1>Alimentador de Peces</h1>	                                                                
+           <div class="servicio">                                                                                                                 
                 <h1 id="label" class= "textOn textOff textError">En espera</h1>
+                <div class="radios_buttons">
+                    <label for="raza_dog">Raza:</label>
+                    <select id="tam_dog" name="tam_dog" required>
+                        <option selected>Pequeña</option>
+                        <option>Mediana</option><option>Grande</option>    
+                    </select> 
+                </div>                             
                 <input type="button" onclick="switchOn()" value="Alimentar" class="button">                                                                      
-	        <img src="Nemo.png" class = "nemo"> 
+	        <img src="Scooby.png" class = "scoob"> 
            </div> 	   
-   </section>
-</main>	
+   </section>   
+</main>
+<main class="contenedor1 sombra ">
+    <section class="servicios">
+        <div class="servicio">                        
+             <div class="direccion">                                                           
+             </div>  
+             <div>
+                 <h1>Nivel de humedad</h1>     
+                 <div id="gauge3" class="500x800px"></div>    
+                 <script>                    
+                    var h = new JustGage({
+                        id: "gauge3",
+                        value: 0,//Valor
+                        min: 0,//Valor minimo
+                        max: 400,//Valor maximo
+                        title: "Humedad (%)"//Titulo
+                    });                    
+                    getReadingH();
+                    </script>           
+             </div>
+            </div> 
+            <div class="servicio1"> 
+                <div class="orientated_h1">                   
+                    <h1 id="Humedad_mala" class="humedad1">Nivel de humedad muy alto</h1>                                     
+                    <h1 id="Humedad_buena" class="humedad2">Nivel de humedad optima</h1>                   
+                </div>
+            </div> 	   
+    </section>   
+ </main>		
 </body>
 </html>
