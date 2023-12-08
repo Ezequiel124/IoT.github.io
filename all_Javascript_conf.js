@@ -1,7 +1,7 @@
 const accessToken = "0b108a382c4de6ed9cc41e240df301736c4f27e6";
 const deviceID = "e00fce680fc0e5b73b2899b8";
 const url = "https://api.particle.io/v1/devices/" + deviceID;
-var form, year, month, day, hour, minute, heading, hourP, minuteP;
+var form, razaA, razaP, humedad_mala, humedad_buena, prog, hour, minute, heading, hourP, minuteP;
 
 window.addEventListener("load", (event) => {
     form = document.getElementById("formulario");
@@ -9,7 +9,6 @@ window.addEventListener("load", (event) => {
     razaA = document.getElementById("tam_dog");
     hour = document.getElementById("hour");
     minute = document.getElementById("minute");
-    heading = document.getElementById('label');
     heading = document.getElementById('label');
     humedad_mala = document.getElementById('Humedad_mala');
     humedad_buena = document.getElementById('Humedad_buena');
