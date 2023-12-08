@@ -50,62 +50,38 @@ function switchOn() {
 }
 
 function programar(){
-    $.post(url + "/setYear", { params: year.value, access_token: accessToken }, "json").then(function(data){
+    $.post(url + "/setHora", { params: hour.value, access_token: accessToken }, "json").then(function(data){
         if (data.return_value == 1){
-            $.post(url + "/setMes", { params: month.selectedIndex + 1, access_token: accessToken }, "json").then(function(data){
-                if (data.return_value == 1){
-                    $.post(url + "/setDia", { params: day.value, access_token: accessToken }, "json").then(function(data){
-                        if (data.return_value == 1){
-                            $.post(url + "/setHora", { params: hour.value, access_token: accessToken }, "json").then(function(data){
-                                if (data.return_value == 1){
-                                    $.post(url + "/setMinuto", { params: minute.value, access_token: accessToken }, "json").then(function(data){
-                                        if (data.return_value == 1){
-                                            alert("El dispensador se activara el:\n" + day.value + "/" + month.value + "/" + year.value +
-                                            " " + hour.value + ":" + minute.value)
-                                                year.value = 2023;
-                                                month.selectedIndex = 0;
-                                                day.selectedIndex = 0;
-                                                hour.selectedIndex = 0;
-                                                minute.selectedIndex = 0;
-                                        }
-                                        else{
-                                            alert("Hubo un error al programar el dispensador");
-                                        }
-                                    });
-                                }
-                                else{
-                                    alert("Hubo un error al programar el dispensador");
-                                }
-                            });
-                        }
-                        else{
-                            alert("Hubo un error al programar el dispensador");
-                        }
-                    });
+            $.post(url + "/setMinuto", { params: minute.value, access_token: accessToken }, "json").then(function(data){
+            if (data.return_value == 1){
+                alert("El dispensador se activara cada:\n" + hour.value + ":" + minute.value)
+                hour.selectedIndex = 0;
+                minute.selectedIndex = 0;
                 }
                 else{
                     alert("Hubo un error al programar el dispensador");
                 }
-            });
-        }
-        else{
-            alert("Hubo un error al programar el dispensador");
-        }
+                });
+            }
+            else{
+                alert("Hubo un error al programar el dispensador");
+                }
     });
 }
 
 function getEstadoServo(){
     $.get(url + "/flagServo", {access_token: accessToken}, callbackServo).then(function(data){
+        console.log(data.result)
         if (data.result == 1){
         heading.classList.remove('textOff');
         heading.innerHTML = 'Alimentando...';
         heading.classList.add('textOn');
         setTimeout(getEstadoServo, 1000);
-    }
-    else{
-        heading.classList.remove('textOn');
-        heading.innerHTML = 'En espera';
-        heading.classList.add('textOff');
-        setTimeout(getEstadoServo, 1000);
-    };
+            }
+            else{
+                heading.classList.remove('textOn');
+                heading.innerHTML = 'En espera';
+                heading.classList.add('textOff');
+                setTimeout(getEstadoServo, 1000);
+                };
 }
