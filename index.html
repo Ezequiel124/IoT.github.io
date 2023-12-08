@@ -79,7 +79,7 @@
             </div>  
             <div>
                 <h2>Programado a las: </h2>
-                <label class="lab_hour">No programada aún</label>
+                <label id='prog' class="lab_hour">No programada aún</label>
             </div>
            </div> 
            <div class="servicio">                                                                                                                 
@@ -88,7 +88,8 @@
                     <label for="raza_dog">Raza:</label>
                     <select id="tam_dog" name="tam_dog" required>
                         <option selected>Pequeña</option>
-                        <option>Mediana</option><option>Grande</option>    
+                        <option>Mediana</option>
+                        <option>Grande</option>    
                     </select> 
                 </div>                             
                 <input type="button" onclick="switchOn()" value="Alimentar" class="button">                                                                      
@@ -103,23 +104,50 @@
              </div>  
              <div>
                  <h1>Nivel de humedad</h1>     
-                 <div id="gauge3" class="500x800px"></div>    
-                 <script>                    
+                 <div id="gauge3" class="500x800px"></div>
+                 <script> 
                     var h = new JustGage({
-                        id: "gauge3",
-                        value: 0,//Valor
-                        min: 0,//Valor minimo
-                        max: 400,//Valor maximo
-                        title: "Humedad (%)"//Titulo
-                    });                    
+                    id: "gauge3",
+                    value: 0,//Valor
+                    min: 0,//Valor minimo
+                    max: 400,//Valor maximo
+                    title: "Humedad (%)"//Titulo
+                    });
+                </script>
+                <script>
+
+                    function getReadingH(){
+                        //Se construye el url y se le pasa el access token 
+                        //Seria como poner un enter a la interface de obtener la temperatura
+                        //y con ello se manda llamar la funcion callback
+                        $.get("https://api.particle.io/v1/devices/e00fce680fc0e5b73b2899b8/humedad", {access_token: "0b108a382c4de6ed9cc41e240df301736c4f27e6"}, callbackH);
+                    }
+
+
+                    function callbackH(data, status){
+                        //Verifica que estatus sea igual a "success"
+                        if (status == "success") {
+                            //guarda en una variable el casting del resultado del parametro data
+                            index = parseFloat(data.result);
+                            //guarda el 
+                            index = index.toFixed(2);
+                            h.refresh(index);
+                            setTimeout(getReadingH, 1000);
+                        }
+                        else {
+                            alert("There was a problem");
+                        }
+                    }
+
+                    
                     getReadingH();
-                    </script>           
+                 </script>
              </div>
             </div> 
             <div class="servicio1"> 
                 <div class="orientated_h1">                   
-                    <h1 id="Humedad_mala" class="humedad1">Nivel de humedad muy alto</h1>                                     
-                    <h1 id="Humedad_buena" class="humedad2">Nivel de humedad optima</h1>                   
+                    <h1 id="Humedad_mala" class="humedad1 textOff">Nivel de humedad muy alto</h1>                                     
+                    <h1 id="Humedad_buena" class="humedad2 textOn">Nivel de humedad optima</h1>                   
                 </div>
             </div> 	   
     </section>   
