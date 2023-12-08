@@ -83,5 +83,5 @@ function getEstadoServo(){
                 heading.innerHTML = 'En espera';
                 heading.classList.add('textOff');
                 setTimeout(getEstadoServo, 1000);
-                };
+                });
 }
