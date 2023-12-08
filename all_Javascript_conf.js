@@ -30,9 +30,18 @@ function switchOn() {
     heading.innerHTML = 'Alimentando...';
     heading.classList.add('textOn');
      
-    if (razaA.selectedIndex = 0){
+    if (razaA.selectedIndex == 0){
         $.post(url + "/alimentarP", { params: "on", access_token: accessToken }, function (data) {
-            if (data.return_value == 1) {
+            if (data.return_value == -2) {
+                heading.classList.remove('textOn');
+                heading.innerHTML = 'Error: Revisa la comida<br>Tiene mucha humedad!';
+                heading.classList.add('textError');
+                wait(4000);
+                heading.classList.remove('textError');
+                heading.innerHTML = 'En espera';
+                heading.classList.add('textOff');
+            }
+            else if (data.return_value == 1) {
                 heading.innerHTML = 'Alimentando...';
                 $.post(url + "/alimentarP", { params: "off", access_token: accessToken }, function (data) {
                     if (data.return_value == 0) {
@@ -54,11 +63,20 @@ function switchOn() {
             }
         }, "json");
     }
-    else if (razaA.selectedIndex = 1){
+    else if (razaA.selectedIndex == 1){
         $.post(url + "/alimentarM", { params: "on", access_token: accessToken }, function (data) {
-            if (data.return_value == 1) {
+            if (data.return_value == -2) {
+                heading.classList.remove('textOn');
+                heading.innerHTML = 'Error: Revisa la comida<br>Tiene mucha humedad!';
+                heading.classList.add('textError');
+                wait(4000);
+                heading.classList.remove('textError');
+                heading.innerHTML = 'En espera';
+                heading.classList.add('textOff');
+            }
+            else if (data.return_value == 1) {
                 heading.innerHTML = 'Alimentando...';
-                $.post(url + "/alimentarM", { params: "off", access_token: accessToken }, function (data) {
+            $.post(url + "/alimentarM", { params: "off", access_token: accessToken }, function (data) {
                     if (data.return_value == 0) {
                         heading.classList.remove('textOn');
                         heading.innerHTML = 'En espera';
@@ -78,9 +96,18 @@ function switchOn() {
             }
         }, "json");
     }
-    if (razaA.selectedIndex = 2){
+    if (razaA.selectedIndex == 2){
         $.post(url + "/alimentarG", { params: "on", access_token: accessToken }, function (data) {
-            if (data.return_value == 1) {
+            if (data.return_value == -2) {
+                heading.classList.remove('textOn');
+                heading.innerHTML = 'Error: Revisa la comida<br>Tiene mucha humedad!';
+                heading.classList.add('textError');
+                wait(4000);
+                heading.classList.remove('textError');
+                heading.innerHTML = 'En espera';
+                heading.classList.add('textOff');
+            }
+            else if (data.return_value == 1) {
                 heading.innerHTML = 'Alimentando...';
                 $.post(url + "/alimentarG", { params: "off", access_token: accessToken }, function (data) {
                     if (data.return_value == 0) {
@@ -139,6 +166,13 @@ function getEstadoServo(){
         heading.innerHTML = 'Alimentando...';
         setTimeout(getEstadoServo, 1000);
             }
+            else if (data.result == -1){
+                heading.classList.remove('textError');
+                heading.classList.remove('textOn');
+                heading.classList.add('textError');
+                heading.innerHTML = 'Error: Revisa la comida<br>Tiene mucha humedad!';
+                setTimeout(getEstadoServo, 1000);
+            }
             else{
                 heading.classList.remove('textError');
                 heading.classList.remove('textOn');
@@ -173,10 +207,22 @@ function getProgramada(){
     $.get(url + "/flag", {access_token: accessToken}).then(function(data){
         if (data.result == 1){
             $.get(url + "/hora", {access_token: accessToken}).then(function(data){
-                hourP = data.result;
+                if (data.result > 10){
+                    hourP = data.result.toString();
+                }
+                else{
+                    hourP = data.result.toString();
+                    hourP = "0" + hourP;
+                }
             });
             $.get(url + "/minuto", {access_token: accessToken}).then(function(data){
-                minuteP = data.result;
+                if (data.result > 10){
+                    minuteP = data.result.toString();
+                }
+                else{
+                    minuteP = data.result.toString();
+                    minuteP = "0" + minuteP;
+                }
             });
 
             prog.innerHTML = hourP + ":" + minuteP;
