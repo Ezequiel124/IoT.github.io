@@ -156,7 +156,7 @@ function getHumedad(){
             humedad_mala.classList.remove('textOff');
             humedad_mala.classList.add('humedad1');
             humedad_buena.classList.remove('humedad2');
-            humedad_buena.classist.add('textOn');
+            humedad_buena.classList.add('textOn');
             setTimeout(getHumedad, 1000);
         }
         else{
